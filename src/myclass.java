@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -135,7 +136,7 @@ public class myclass {
 			Assert.assertEquals(ActualValue, ExpectedValue);
 		}
 
-		@Test(priority = 4)
+		@Test(priority = 4, enabled = false)
 
 		public void addMenItem() throws InterruptedException {
 			WebElement MenSection = driver.findElement(By.id("ui-id-5"));
@@ -177,37 +178,114 @@ public class myclass {
 }
 		@Test(priority = 5)
 
-		public void addWomanItem() throws InterruptedException{
-			
-			WebElement WomanSection = driver.findElement(By.id("ui-id-4")); 
-			
-			WomanSection.click();
-			
+		public void addWomenItem() throws InterruptedException {
+			WebElement WomenSection = driver.findElement(By.id("ui-id-4"));
+
+			WomenSection.click();
+
+			;
+
+//			System.out.println(driver.findElements(By.className("product-item")).size());
+
 			WebElement productITemsContainer = driver.findElement(By.className("product-items"));
+
+//			System.out.println(productITemsContainer.findElements(By.className("product-item")).size());;
+//			
+//			; 
+
+//			System.out.println(driver.findElements(By.tagName("li")).size());
+
 			List<WebElement> AllItems = productITemsContainer.findElements(By.tagName("li"));
-			
-			int totalNumberOfItems = AllItems.size(); 
-			int randomItem = rand.nextInt(totalNumberOfItems); 
+
+			int totalNumberOfItems = AllItems.size();
+			int randomItem = rand.nextInt(totalNumberOfItems);
 
 			AllItems.get(randomItem).click();
-			
-			WebElement Review = driver.findElement(By.id("tab-label-reviews-title"));
-			Review.click();
-			WebElement NickName = driver.findElement(By.id("nickname_field"));
-			NickName.sendKeys("Anas");
-			NickName.click();
-			
-			WebElement Summary = driver.findElement(By.id("summary_field"));
-			Summary.sendKeys("I love it ");
-			
-			
-			WebElement Submite = driver.findElement(By.tagName("div"));
-			Submite.click();
-			
-			
-			
-			
-			
-			
+			;
+
+			WebElement theContainerOfSizes = driver.findElement(By.cssSelector(".swatch-attribute-options.clearfix"));
+
+			;
+
+			String[] sizes = { "33", "34", "36", "37" };
+	// select any one for me i will select the first one 
+	//System.out.println(theContainerOfSizes.findElements(By.className("swatch-option")).size());
+	//System.out.println(theContainerOfSizes.findElements(By.tagName("div")).size());
+			List<WebElement> ListOfSizes = theContainerOfSizes.findElements(By.className("swatch-option"));
+			int numberofSizes = ListOfSizes.size();
+
+			int randomSize = rand.nextInt(numberofSizes);
+			ListOfSizes.get(randomSize).click();
+			;
+
+			WebElement ColorsContainer = driver
+					.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
+			List<WebElement> ListOfClors = ColorsContainer.findElements(By.tagName("div"));
+			int numberOfColors = ListOfClors.size();
+
+			int randomColor = rand.nextInt(numberOfColors);
+			ListOfClors.get(randomColor).click();
+
+			WebElement AddToCartButton = driver.findElement(By.id("product-addtocart-button"));
+
+			AddToCartButton.click();
+
+			Thread.sleep(5000);
+
+			WebElement MessageAdded = driver.findElement(By.cssSelector(".message-success.success.message"));
+
+			System.out.println(MessageAdded.getText().contains("You added"));
+
+			Assert.assertEquals(MessageAdded.getText().contains("You added"), true);
+
+	// review section 
+
+			driver.navigate().refresh();
+
+			WebElement ReviewSEction = driver.findElement(By.id("tab-label-reviews-title"));
+
+			ReviewSEction.click();
+
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+
+			js.executeScript("window.scrollTo(0,1200)");
+
+			Thread.sleep(2000);
+
+			WebElement RatingStars = driver.findElement(By.cssSelector(".control.review-control-vote"));
+
+			;
+
+			Thread.sleep(2000);
+
+			System.out.println(RatingStars.findElements(By.tagName("label")).size() + "*****************");
+//			RatingStars.findElements(By.tagName("label")).get(2).click();
+
+			String[] ids = { "Rating_1", "Rating_2", "Rating_3", "Rating_4", "Rating_5" };
+			int randomIndex = rand.nextInt(ids.length);
+			WebElement element = driver.findElement(By.id(ids[randomIndex]));
+			((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+
+			WebElement nickname = driver.findElement(By.id("nickname_field"));
+			nickname.sendKeys("soso");
+
+			WebElement summary = driver.findElement(By.id("summary_field"));
+
+			summary.sendKeys("mahmoud");
+
+			WebElement review = driver.findElement(By.id("review_field"));
+
+			review.sendKeys("hello this is a test");
+			;
+
+			WebElement submitReviewButton = driver.findElement(By.cssSelector(".action.submit.primary"));
+
+			submitReviewButton.click();
+
+			String actualTextforReview = driver.findElement(By.cssSelector(".message-success.success.message")).getText();
+			String expectedTextforReview = "You submitted your review for moderation.";
+
+			Assert.assertEquals(actualTextforReview, expectedTextforReview);
+
 		}
 }

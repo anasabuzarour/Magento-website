@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="1" total="5" passed="4" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-10T15:28:13 EET" name="Default suite" finished-at="2024-08-10T15:28:43 EET" duration-ms="29922">
+  <suite started-at="2024-08-11T22:00:11 EET" name="Default suite" finished-at="2024-08-11T22:00:54 EET" duration-ms="42669">
     <groups>
     </groups>
-    <test started-at="2024-08-10T15:28:13 EET" name="Default test" finished-at="2024-08-10T15:28:43 EET" duration-ms="29922">
+    <test started-at="2024-08-11T22:00:11 EET" name="Default test" finished-at="2024-08-11T22:00:54 EET" duration-ms="42669">
       <class name="myclass">
-        <test-method is-config="true" signature="mySetup()[pri:0, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:13 EET" name="mySetup" finished-at="2024-08-10T15:28:17 EET" duration-ms="3842" status="PASS">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:myclass@132ddbab]" started-at="2024-08-11T22:00:12 EET" name="mySetup" finished-at="2024-08-11T22:00:17 EET" duration-ms="5387" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetup -->
-        <test-method signature="CreateAnAccount()[pri:1, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:17 EET" name="CreateAnAccount" finished-at="2024-08-10T15:28:25 EET" duration-ms="7980" status="PASS">
+        <test-method signature="CreateAnAccount()[pri:1, instance:myclass@132ddbab]" started-at="2024-08-11T22:00:17 EET" name="CreateAnAccount" finished-at="2024-08-11T22:00:25 EET" duration-ms="7701" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateAnAccount -->
-        <test-method signature="logOut()[pri:2, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:25 EET" name="logOut" finished-at="2024-08-10T15:28:28 EET" duration-ms="2960" status="PASS">
+        <test-method signature="logOut()[pri:2, instance:myclass@132ddbab]" started-at="2024-08-11T22:00:25 EET" name="logOut" finished-at="2024-08-11T22:00:27 EET" duration-ms="2188" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logOut -->
-        <test-method signature="loginTest()[pri:3, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:28 EET" name="loginTest" finished-at="2024-08-10T15:28:33 EET" duration-ms="5167" status="PASS">
+        <test-method signature="loginTest()[pri:3, instance:myclass@132ddbab]" started-at="2024-08-11T22:00:27 EET" name="loginTest" finished-at="2024-08-11T22:00:33 EET" duration-ms="5728" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method signature="addMenItem()[pri:4, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:33 EET" name="addMenItem" finished-at="2024-08-10T15:28:39 EET" duration-ms="5476" status="PASS">
+        <test-method signature="addWomenItem()[pri:5, instance:myclass@132ddbab]" started-at="2024-08-11T22:00:33 EET" name="addWomenItem" finished-at="2024-08-11T22:00:54 EET" duration-ms="21582" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addMenItem -->
-        <test-method signature="addWomanItem()[pri:5, instance:myclass@132ddbab]" started-at="2024-08-10T15:28:39 EET" name="addWomanItem" finished-at="2024-08-10T15:28:43 EET" duration-ms="4409" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- addWomanItem -->
+        </test-method> <!-- addWomenItem -->
       </class> <!-- myclass -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
